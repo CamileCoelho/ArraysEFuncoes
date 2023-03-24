@@ -11,7 +11,6 @@ namespace ArraysFuncoes.ConsoleApp
         
         static void MostrarMenu()
         {
-            Console.WriteLine();
             Console.WriteLine("Escolha a ação que deseja.");
             Console.WriteLine();
             Console.WriteLine("1- Encontrar o maior valor da sequência; \r\n2- Encontrar o menor valor da sequência; \r\n3- Encontrar a média dos valores da sequência; \r\n4- Encontrar os 3 maiores valores da sequência; \r\n5- Encontrar os valores negativos da sequência; \r\n6- Mostrar na tela os todos os valores da sequência; \r\n7- Remover um item da sequência. \r\n");
@@ -126,6 +125,8 @@ namespace ArraysFuncoes.ConsoleApp
                     Console.Write(array[i] + ", ");
                 }
             }
+            Console.WriteLine();
+            Console.WriteLine();
         }
         static void RemoverUmValor()
         {
@@ -175,7 +176,16 @@ namespace ArraysFuncoes.ConsoleApp
                 Console.WriteLine("Valor inválido.");
             }
         }
-
+        static bool PerguntarSeDesejaContinuar()
+        {
+            bool continuar;
+            Console.WriteLine("Deseja realizar mais alguma ação? Caso deseje, digite \"sim\", caso contrário digite qualquer tecla para sair.");
+            Console.WriteLine();
+            string resposta = Console.ReadLine();
+            continuar = resposta.ToLower() == "sim";
+            Console.WriteLine();
+            return continuar;
+        }
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -213,28 +223,12 @@ namespace ArraysFuncoes.ConsoleApp
                             break;
                     }
                 }
-                else if (escolha <= 1 && escolha >= 7)
-                {
-                    MostrarMensagemEscolhaInvalida();
-                }
                 else
-                {
-                    continuar = PerguntarSeDesejaContinuar();
-                }
+                    MostrarMensagemEscolhaInvalida();
 
+                continuar = PerguntarSeDesejaContinuar();
             } while (continuar);
-
             Console.ForegroundColor = ConsoleColor.White;
-        }
-
-        private static bool PerguntarSeDesejaContinuar()
-        {
-            bool continuar;
-            Console.WriteLine();
-            Console.WriteLine("Deseja realizar mais alguma ação? (sim/não)");
-            string resposta = Console.ReadLine();
-            continuar = resposta.ToLower() == "sim";
-            return continuar;
         }
     }
 }
