@@ -180,6 +180,7 @@ namespace ArraysFuncoes.ConsoleApp
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Atividade sobre Arrays, Funções e Programação Estruturada.");
+            bool continuar = true;
 
             do
             {
@@ -212,12 +213,28 @@ namespace ArraysFuncoes.ConsoleApp
                             break;
                     }
                 }
-                else
+                else if (escolha <= 1 && escolha >= 7)
+                {
                     MostrarMensagemEscolhaInvalida();
+                }
+                else
+                {
+                    continuar = PerguntarSeDesejaContinuar();
+                }
 
-            } while (escolha < 1 || escolha > 7);
+            } while (continuar);
 
             Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        private static bool PerguntarSeDesejaContinuar()
+        {
+            bool continuar;
+            Console.WriteLine();
+            Console.WriteLine("Deseja realizar mais alguma ação? (sim/não)");
+            string resposta = Console.ReadLine();
+            continuar = resposta.ToLower() == "sim";
+            return continuar;
         }
     }
 }
