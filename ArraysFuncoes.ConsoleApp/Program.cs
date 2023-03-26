@@ -11,6 +11,7 @@ namespace ArraysFuncoes.ConsoleApp
         
         static void MostrarMenu()
         {
+            Console.Clear();
             Console.WriteLine("Escolha a ação que deseja.");
             Console.WriteLine();
             Console.WriteLine("1- Encontrar o maior valor da sequência; \r\n2- Encontrar o menor valor da sequência; \r\n3- Encontrar a média dos valores da sequência; \r\n4- Encontrar os 3 maiores valores da sequência; \r\n5- Encontrar os valores negativos da sequência; \r\n6- Mostrar na tela os todos os valores da sequência; \r\n7- Remover um item da sequência. \r\n");
@@ -125,7 +126,7 @@ namespace ArraysFuncoes.ConsoleApp
                     Console.Write(array[i] + ", ");
                 }
             }
-            Console.WriteLine();
+            Console.WriteLine(); 
             Console.WriteLine();
         }
         static void RemoverUmValor()
@@ -190,6 +191,7 @@ namespace ArraysFuncoes.ConsoleApp
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Atividade sobre Arrays, Funções e Programação Estruturada.");
+            Console.WriteLine();
             bool continuar = true;
 
             do
